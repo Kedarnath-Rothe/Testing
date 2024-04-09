@@ -11,31 +11,45 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const addUserData = async(e)=>{
+    const addUserData = async (e) => {
         e.preventDefault();
-
+    
         const formData = new FormData();
-        formData.append("photo",file);
-        formData.append("name",name);
-
+        formData.append("photo", file); // Assuming 'file' is defined elsewhere
+        formData.append("name", name); // Assuming 'name' is defined elsewhere
+    
         const config = {
-            headers:{
-                "Content-Type":"multipart/form-data"
+            headers: {
+                "Content-Type": "multipart/form-data"
             }
+        };
+    
+        try {
+            console.log("Sending request...");
+    
+            const response = await axios.post(
+                "https://testing-pi-five-21.vercel.app/register",
+                formData,
+                config
+            );
+    
+            console.log("Request successful:", response);
+    
+            if (response.status === 200) {
+                // Handle successful response
+                navigate("/"); // Assuming 'navigate' is defined elsewhere for routing
+            } else {
+                // Handle unexpected status code
+                console.error("Unexpected response status:", response.status);
+                alert("Unexpected response. Please try again.");
+            }
+        } catch (error) {
+            // Handle request error
+            console.error("Request failed:", error);
+            alert("Request failed. Please try again later.");
         }
-
-        console.log("hii");
-
-        const res = await axios.post("https://testing-pi-five-21.vercel.app/register",formData,config);
-        
-        console.log("hii22");
-
-        if(res.status === 200){
-            navigate("/")
-        }else{
-            alert("error")
-        }
-    }
+    };
+    
 
     return (
         <>
