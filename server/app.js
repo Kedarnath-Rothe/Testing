@@ -7,14 +7,9 @@ const cors = require("cors");
 const router = require("./routes/router");
 const port = 4004;
 
-const corsOptions = {
-    origin : "*",
-    methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
-    Credential : true,
-}
 
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(router);
 
 
