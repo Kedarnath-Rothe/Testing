@@ -24,8 +24,11 @@ const Register = () => {
             }
         }
 
+        console.log("hii");
+
         const res = await axios.post("https://testing-pi-five-21.vercel.app/register",formData,config);
         
+        console.log("hii22");
 
         if(res.status === 200){
             navigate("/")
