@@ -10,7 +10,7 @@ const Home = () => {
     console.log(data)
 
     const getUserData = async()=>{
-        const res = await axios.get("http://localhost:4004/getdata",{
+        const res = await axios.get("https://testing-pi-five-21.vercel.app/getdata",{
             headers:{
                 "Content-Type":"application/json"
             }

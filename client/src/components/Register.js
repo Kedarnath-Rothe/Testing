@@ -24,7 +24,7 @@ const Register = () => {
             }
         }
 
-        const res = await axios.post("http://localhost:4004/register",formData,config);
+        const res = await axios.post("https://testing-pi-five-21.vercel.app/register",formData,config);
         
 
         if(res.status === 200){
