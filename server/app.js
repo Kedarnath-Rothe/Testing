@@ -8,7 +8,7 @@ const router = require("./routes/router");
 const port = 4004;
 
 const corsOptions = {
-    origin : "https://testing-qwsj.vercel.app",
+    origin : "*",
     methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
     Credential : true,
 }
