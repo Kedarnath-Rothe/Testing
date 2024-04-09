@@ -33,7 +33,12 @@ const upload = multer({
 // user register
 router.post("/register",upload.single("photo"),async(req,res)=>{
 
+    console.log("hjhkjk");
+
     const upload = await cloudinary.uploader.upload(req.file.path);
+
+    console.log("hjhkjk2222");
+
     
     const {name} = req.body;
     
